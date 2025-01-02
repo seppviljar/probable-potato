@@ -5,11 +5,9 @@ def generate_menu():
     root_dir = './html-files'
     menu = {}
 
-    for lang in ['es', 'pt']:
-        lang_dir = os.path.join(root_dir, lang)
-        menu[lang] = [
-            file for file in os.listdir(lang_dir) if file.endswith('.html')
-        ]
+    menu = [
+        file for file in os.listdir(root_dir) if file.endswith('.html') and file != "index.html"
+    ]
 
     with open('menu.json', 'w') as f:
         json.dump(menu, f, indent=4)

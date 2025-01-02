@@ -4,11 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glossary</title>
-    <script type="text/javascript">
-        var _jipt = [];
-        _jipt.push(['project', 'veriff-support']);
-    </script>
-    <script type="text/javascript" src="https://cdn.crowdin.com/jipt/jipt.js"></script>
     <style>
         body {
             margin: 0;
@@ -44,12 +39,6 @@
             padding: 20px;
             overflow-y: auto;
         }
-        img {
-            max-width: 70%;
-            height: auto; /* Maintain aspect ratio */
-            display: block; /* Optional: prevents inline spacing issues */
-            margin: 0 auto; /* Optional: centers the image */
-        }
     </style>
 </head>
 <body>
@@ -59,66 +48,63 @@
         </ul>
     </div>
     <div id="content">
-        <h2>Hello!</h2>
+        <h2>Welcome!</h2>
         <p>Select a file from the menu to load its content here.</p>
     </div>
 
     <script>
-    fetch('menu.json') // Assuming `menu.json` contains the list of files
-    .then(response => {
-        if (!response.ok) throw new Error('Failed to load menu JSON');
-        return response.json(); // Parse JSON
-    })
-    .then(menuItems => {
-        const fileList = document.getElementById('fileList');
-        menuItems.forEach(item => {
-            const li = document.createElement('li');
-            const anchor = document.createElement('a');
-            anchor.textContent = item.name; // Display name from JSON
-            anchor.href = item.path; // Path from JSON
-            anchor.addEventListener('click', function (event) {
-                event.preventDefault(); // Prevent default navigation
-                const filePath = this.getAttribute('href'); // Get href
-                loadFileContent(filePath); // Load content dynamically
+        // Load menu items from menu.json and populate the menu
+        fetch('menu.json')
+            .then(response => {
+                if (!response.ok) throw new Error('Failed to load menu JSON');
+                return response.json();
+            })
+            .then(fileNames => {
+                const fileList = document.getElementById('fileList');
+                fileNames.forEach(fileName => {
+                    // Extract the human-readable name from the filename
+                    const id = fileName.split('-')[0];
+                    const displayName = fileName
+                        .replace(/-/g, ' ') // Replace dashes with spaces
+                        .replace('.html', '') // Remove the .html extension
+                        .replace(/^\d+-/, ''); // Remove the numeric prefix
+                    
+                    const li = document.createElement('li');
+                    const anchor = document.createElement('a');
+                    anchor.textContent = `[${id}] ${displayName}`; // Format: [ID] Title
+                    anchor.href = `./html-files/${fileName}`;
+                    anchor.addEventListener('click', function (event) {
+                        event.preventDefault(); // Prevent default navigation
+                        loadFileContent(this.href);
+                    });
+                    li.appendChild(anchor);
+                    fileList.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Error loading menu:', error);
+                const fileList = document.getElementById('fileList');
+                const errorItem = document.createElement('li');
+                errorItem.textContent = 'Error loading menu items.';
+                fileList.appendChild(errorItem);
             });
-            li.appendChild(anchor);
-            fileList.appendChild(li);
-        });
-    })
-    .catch(error => {
-        console.error('Error loading menu:', error);
-        const fileList = document.getElementById('fileList');
-        const errorItem = document.createElement('li');
-        errorItem.textContent = 'Error loading menu items.';
-        fileList.appendChild(errorItem);
-    });
 
-    function loadFileContent(filePath) {
-    fetch(filePath)
-        .then(response => {
-            if (!response.ok) throw new Error('File not found');
-            return response.text(); // Load file as text
-        })
-        .then(html => {
-            const content = document.getElementById('content');
-            content.innerHTML = html; // Load content into #content
-            cleanImageUrls(); // Optionally clean image URLs
-        })
-        .catch(error => {
-            console.error('Error loading file content:', error);
-            const content = document.getElementById('content');
-            content.innerHTML = '<p>Error loading content. Please try again later.</p>';
-        });
-}
-
-        function cleanImageUrls() {
-            const images = document.querySelectorAll('#content img');
-            images.forEach(img => {
-                const src = img.src;
-                if (src.includes('?')) {
-                    img.src = src.split('?')[0]; // Remove query parameters
-                }
-            });
+        // Function to load file content dynamically
+        function loadFileContent(filePath) {
+            fetch(filePath)
+                .then(response => {
+                    if (!response.ok) throw new Error('File not found');
+                    return response.text();
+                })
+                .then(html => {
+                    const content = document.getElementById('content');
+                    content.innerHTML = html; // Inject file content
+                })
+                .catch(error => {
+                    console.error('Error loading file content:', error);
+                    const content = document.getElementById('content');
+                    content.innerHTML = '<p>Error loading content. Please try again later.</p>';
+                });
         }
     </script>
 </body>
