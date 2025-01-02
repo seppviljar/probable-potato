@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glossary</title>
+    <script type="text/javascript">
+        var _jipt = [];
+        _jipt.push(['project', 'veriff-support']);
+    </script>
+    <script type="text/javascript" src="https://cdn.crowdin.com/jipt/jipt.js"></script>
     <style>
         body {
             margin: 0;
@@ -39,6 +44,12 @@
             padding: 20px;
             overflow-y: auto;
         }
+        img {
+            max-width: 70%;
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Optional: prevents inline spacing issues */
+            margin: 0 auto; /* Optional: centers the image */
+        }
     </style>
 </head>
 <body>
@@ -67,8 +78,9 @@
                     const displayName = fileName
                         .replace(/-/g, ' ') // Replace dashes with spaces
                         .replace('.html', '') // Remove the .html extension
-                        .replace(/^\d+-/, ''); // Remove the numeric prefix
-                    
+                        .replace(/^\d+-/, '') // Remove the numeric prefix
+                        .replace(/\b\w/g, char => char.toUpperCase()) // Turn text to Title Case;
+                        .replace(/\b(?:And|Or|The|Of|For|To|In|On|At|By)\b/g, word => word.toLowerCase()); // Lowercase small words
                     const li = document.createElement('li');
                     const anchor = document.createElement('a');
                     anchor.textContent = `[${id}] ${displayName}`; // Format: [ID] Title
@@ -105,6 +117,16 @@
                     const content = document.getElementById('content');
                     content.innerHTML = '<p>Error loading content. Please try again later.</p>';
                 });
+            }
+
+        function cleanImageUrls() {
+            const images = document.querySelectorAll('#content img');
+            images.forEach(img => {
+                const src = img.src;
+                if (src.includes('?')) {
+                    img.src = src.split('?')[0]; // Remove query parameters
+                }
+            });
         }
     </script>
 </body>
