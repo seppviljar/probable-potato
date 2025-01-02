@@ -65,39 +65,27 @@
 
     <script>
         // Dynamically populate the menu with HTML files from a known folder
-        const folder = './html-files/';
-        fetch(folder)
-            .then(response => {
-                if (!response.ok) throw new Error('Directory listing not enabled');
-                return response.text();
-            })
-            .then(html => {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                const links = Array.from(doc.querySelectorAll('a[href$=".html"]'));
-                
-                const fileList = document.getElementById('fileList');
-                links.forEach(link => {
-                    const fileName = link.textContent;
-                    const li = document.createElement('li');
-                    const anchor = document.createElement('a');
-                    anchor.textContent = fileName;
-                    anchor.href = folder + fileName;
-                    anchor.onclick = function (event) {
-                        event.preventDefault();
-                        loadFileContent(this.href);
-                    };
-                    li.appendChild(anchor);
-                    fileList.appendChild(li);
-                });
-            })
-            .catch(error => {
-                console.error('Error loading HTML files:', error);
-                const fileList = document.getElementById('fileList');
-                const errorItem = document.createElement('li');
-                errorItem.textContent = 'Error loading files. Make sure directory listing is enabled.';
-                fileList.appendChild(errorItem);
+        const folder = './html-files/es/';
+        fetch('./menu.json')
+    .then(response => response.json())
+    .then(menu => {
+        const fileList = document.getElementById('fileList');
+        Object.keys(menu).forEach(lang => {
+            const langHeader = document.createElement('li');
+            langHeader.textContent = lang.toUpperCase();
+            langHeader.style.fontWeight = 'bold';
+            fileList.appendChild(langHeader);
+
+            menu[lang].forEach(fileName => {
+                const li = document.createElement('li');
+                const anchor = document.createElement('a');
+                anchor.textContent = fileName;
+                anchor.href = `./html-files/${lang}/${fileName}`;
+                li.appendChild(anchor);
+                fileList.appendChild(li);
             });
+        });
+    });
 
         function loadFileContent(filePath) {
             fetch(filePath)
