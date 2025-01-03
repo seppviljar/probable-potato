@@ -19,8 +19,8 @@ jobs:
           upload_translations: false
           download_translations: true
           download_language: zu
-          source: html-files/en/%original_file_name%
-          translation: html-files/%locale%/%original_file_name%
+          source: /html-files/en/*.html
+          translation: /html-files/%locale%/%original_file_name%
           crowdin_branch_name: main
           localization_branch_name: l10n_crowdin_translations
           create_pull_request: true
