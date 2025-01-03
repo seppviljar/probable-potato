@@ -1,0 +1,18 @@
+<html><head><title>Límite de reenvío excedido</title></head><body><h1>Límite de reenvío excedido</h1><p class="no-margin">Idealmente, cada verificación presentada debería recibir una decisión en el primer intento. Sin embargo, hay casos en los que esto no es posible. Por ejemplo, debido a problemas como la calidad muy baja del documento o de la imagen selfie, no se puede dar una decisión y la sesión se reenvía hasta que las imágenes capturadas tengan la calidad suficiente para permitir un estado de decisión concluyente.</p>
+<p class="no-margin"></p>
+<p class="no-margin">A veces, esto en sí mismo puede ser un problema. Por ejemplo, si el dispositivo del individuo es la fuente del problema, no hay una solución posible incluso después de un reenvío, lo que puede resultar en un bucle de reenvío.</p>
+<p class="no-margin"></p>
+<p class="no-margin">El límite de reenvío de Veriff está diseñado para asegurar que un usuario final no quede atrapado en un bucle negativo. Además, cuando está en el Enterprise Plan, esto también significa que tiene control sobre la cantidad de reenvíos que su cliente puede realizar al ser verificado.</p>
+<p class="no-margin"></p>
+<p class="no-margin"></p>
+<h1 id="h_9661741d71">¿Cómo funciona?</h1>
+<p class="no-margin">Si su usuario final ha sido solicitado a reenviar 9 veces durante la misma sesión &amp; utilizando el mismo ID de identificación, su décimo intento será automáticamente rechazada.</p>
+<p class="no-margin"></p>
+<p class="no-margin">El rechazo ocurriría simplemente como resultado de alcanzar el límite de reenvío y no podrá hacer más reenvíos en esa sesión.</p>
+<p class="no-margin"></p>
+<p class="no-margin"></p>
+<h2 id="h_e1ab35c382">Razón / Código granular</h2>
+<p class="no-margin">Cuando una sesión es rechazada debido a que se ha excedido el límite de reenvío, el código de razón del rechazo será: </p>
+<p class="intercom-align-center no-margin">"539" - "Límite de reenvío excedido"</p>
+<p class="no-margin"></p>
+<p class="no-margin">Este código de razón granular también se indica en nuestra <a class="intercom-content-link" href="https://developers.veriff.com/#grc-verification-decision-declined" target="_blank">guía de documentación para desarrolladores aquí</a>.</p></body></html>
