@@ -1,0 +1,70 @@
+<html><head><title>Resolução de Problemas de Sessão Recusada</title></head><body><h1>Resolução de Problemas de Sessão Recusada</h1>Aqui estão os motivos pelos quais seu cliente não pôde ser verificado<p class="no-margin"><b>Observe que os motivos de recusa podem variar dependendo do <a class="intercom-content-link" href="https://help.veriff.com/en/articles/4273096-decision-profiles" target="_blank">Perfil de Decisão</a> único de cada cliente</b></p>
+<p class="no-margin"><br/>Lista de códigos de motivos enviados via webhooks disponível aqui: <a class="intercom-content-link" href="https://developers.veriff.com/#granular-reason-codes" target="_blank">https://developers.veriff.com/#granular-reason-codes</a></p>
+<h2 id="h_7820ac14bb"><br/></h2>
+<hr/><h1 id="h_23e30d58e9">Motivos para uma decisão de recusa:</h1>
+<p class="no-margin"></p>
+<h2 id="h_1fa70fa948">Suspeita de adulteração do documento</h2>
+<ul>
+<li>
+<p class="no-margin">o documento inclui dados ou características que não estão de acordo com a aparência de um espécime oficial</p>
+</li>
+<li>
+<p class="no-margin">a verificação cruzada dos dados do documento não foi bem-sucedida</p>
+</li>
+</ul><p class="no-margin"></p>
+<h2 id="h_4e0179548e">Comportamento suspeito</h2>
+<ul>
+<li>
+<p class="no-margin">fotos de retrato são mostradas apenas a partir de uma tela de dispositivo</p>
+</li>
+<li>
+<p class="no-margin">fotos do documento são mostradas apenas a partir de uma tela de dispositivo</p>
+</li>
+<li>
+<p class="no-margin">fotos de retrato são apresentadas apenas como uma impressão ou digitalização</p>
+</li>
+<li>
+<p class="no-margin">fotos do documento são apresentadas apenas como uma impressão ou digitalização</p>
+</li>
+<li>
+<p class="no-margin">imagens foram alteradas digitalmente</p>
+</li>
+<li>
+<p class="no-margin">há mais de uma pessoa visível na sessão</p>
+<p class="no-margin"></p>
+</li>
+</ul><h2 id="h_b8585fe5c5">Fraude conhecida</h2>
+<ul>
+<li>
+<p class="no-margin">quando a mesma pessoa, dispositivo ou documento esteve presente em sessões fraudulentas anteriores</p>
+</li>
+<li>
+<p class="no-margin">uma apresentação de slides foi detectada no vídeo da sessão</p>
+</li>
+<li>
+<p class="no-margin">imagens da sessão são transmitidas ao invés de serem capturadas no fluxo da Veriff</p>
+<p class="no-margin"></p>
+</li>
+</ul><h2 id="h_200b8db341">A pessoa que apresenta o documento não parece corresponder à foto do documento</h2>
+<ul>
+<li>
+<p class="no-margin">a foto de retrato não corresponde à foto do documento</p>
+</li>
+<li>
+<p class="no-margin">fotos de retrato e fotos de documentos de mais de um indivíduo estão presentes na mesma sessão (ex.: foto de retrato de Tom e Bob + fotos dos documentos de Tom e Bob na mesma sessão)</p>
+</li>
+</ul><p class="no-margin"></p>
+<h2 id="h_29ea6558d2">
+<a class="intercom-content-link" href="https://help.veriff.com/en/articles/4332065-velocity-abuse" target="_blank">Abuso de Velocidade</a> (recurso opcional e recusa totalmente automatizada)</h2>
+<ul>
+<li>
+<p class="no-margin"><b>velocidade/abuso - usuário duplicado</b>: o mesmo usuário já foi aprovado antes</p>
+</li>
+<li>
+<p class="no-margin"><b>velocidade/abuso - dispositivo duplicado</b>: 10 aprovações foram alcançadas a partir do mesmo dispositivo, a 11ª sessão enviada a partir do mesmo dispositivo foi recusada com este motivo.</p>
+</li>
+<li>
+<p class="no-margin"><b>velocidade/abuso - documento duplicado:</b> o mesmo documento já foi aprovado</p>
+</li>
+</ul><p class="no-margin"></p>
+<p class="no-margin"><i>Se você discordar da decisão da Veriff, entre em contato com nosso Suporte ao Cliente <a class="intercom-content-link" href="mailto:support@veriff.com" target="_blank">support@veriff.com</a></i></p></body></html>
