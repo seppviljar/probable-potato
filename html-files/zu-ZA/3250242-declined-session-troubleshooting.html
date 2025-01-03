@@ -1,0 +1,70 @@
+<html><head><title>Declined Session Troubleshooting</title></head><body><h1>Declined Session Troubleshooting</h1>Here are the reasons why your customer could not be verified<p class="no-margin"><b>Please note that decline reasons may vary depending on every client's unique <a class="intercom-content-link" href="https://help.veriff.com/en/articles/4273096-decision-profiles" target="_blank">Decision Profile</a></b></p>
+<p class="no-margin"><br/>List of reason codes sent via webhooks available here: <a class="intercom-content-link" href="https://developers.veriff.com/#granular-reason-codes" target="_blank">https://developers.veriff.com/#granular-reason-codes</a></p>
+<h2 id="h_7820ac14bb"><br/></h2>
+<hr/><h1 id="h_23e30d58e9">Reasons for a decline decision:</h1>
+<p class="no-margin"></p>
+<h2 id="h_1fa70fa948">Suspected document tampering</h2>
+<ul>
+<li>
+<p class="no-margin">document includes data or features which are not compliant with the appearance of an official specimen</p>
+</li>
+<li>
+<p class="no-margin">document data cross-reference was not successful</p>
+</li>
+</ul><p class="no-margin"></p>
+<h2 id="h_4e0179548e">Suspicious behaviour</h2>
+<ul>
+<li>
+<p class="no-margin">portrait photos are shown only from a device screen</p>
+</li>
+<li>
+<p class="no-margin">document photos are shown only from a device screen</p>
+</li>
+<li>
+<p class="no-margin">portrait photos are only presented as a printout or a scan</p>
+</li>
+<li>
+<p class="no-margin">document photos are only presented as a printout or a scan</p>
+</li>
+<li>
+<p class="no-margin">images have been digitally altered</p>
+</li>
+<li>
+<p class="no-margin">there is more than one person visible in the session</p>
+<p class="no-margin"></p>
+</li>
+</ul><h2 id="h_b8585fe5c5">Known fraud</h2>
+<ul>
+<li>
+<p class="no-margin">when the same person, device or document has been present in previous fraudulent sessions</p>
+</li>
+<li>
+<p class="no-margin">slideshow was detected in session video</p>
+</li>
+<li>
+<p class="no-margin">session images are streamed instead of taken in Veriff's flow</p>
+<p class="no-margin"></p>
+</li>
+</ul><h2 id="h_200b8db341">The person showing the document does not appear to match the document photo</h2>
+<ul>
+<li>
+<p class="no-margin">portrait photo does not match document photo</p>
+</li>
+<li>
+<p class="no-margin">more than one unique individual's portrait photos and document photos present in the same session (e.g portrait photo of both Tom and Bob + document photos of both Tom and Bob's documents in the same session)</p>
+</li>
+</ul><p class="no-margin"></p>
+<h2 id="h_29ea6558d2">
+<a class="intercom-content-link" href="https://help.veriff.com/en/articles/4332065-velocity-abuse" target="_blank">Velocity Abuse</a> (optional add-on feature and fully-automated decline)</h2>
+<ul>
+<li>
+<p class="no-margin"><b>velocity/abuse - duplicated user</b> : same user already approved before</p>
+</li>
+<li>
+<p class="no-margin"><b>velocity/abuse - duplicated device</b> : 10 approves from same device have been reached, 11th submitted session from same device declined with this reason.</p>
+</li>
+<li>
+<p class="no-margin"><b>velocity/abuse - duplicated id : </b>same document already approved</p>
+</li>
+</ul><p class="no-margin"></p>
+<p class="no-margin"><i>If you disagree with Veriff's decision please report it to our Customer Support <a class="intercom-content-link" href="mailto:support@veriff.com" target="_blank">support@veriff.com </a></i></p></body></html>
