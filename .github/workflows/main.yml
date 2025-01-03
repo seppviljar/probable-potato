@@ -21,6 +21,7 @@ jobs:
           download_language: zu
           source: html-files/en/%original_file_name%
           translation: html-files/%locale%/%original_file_name%
+          crowdin_branch_name: main
           localization_branch_name: l10n_crowdin_translations
           create_pull_request: true
           pull_request_title: 'New Crowdin Translations'
