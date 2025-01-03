@@ -1,0 +1,18 @@
+<html><head><title>Limite de Reenvio Excedido</title></head><body><h1>Limite de Reenvio Excedido</h1><p class="no-margin">Idealmente, cada verificação submetida deve receber uma decisão na primeira tentativa. No entanto, há casos em que isso não é possível. Por exemplo, devido a problemas como baixa qualidade de documento ou imagem de selfie, uma decisão não pode ser dada, e a sessão é reenviada até que as imagens capturadas tenham qualidade suficiente para possibilitar um status de decisão decisivo.</p>
+<p class="no-margin"></p>
+<p class="no-margin">Às vezes, isso por si só pode ser um problema. Por exemplo, se o dispositivo do indivíduo é a origem do problema, não há uma resolução possível mesmo após um reenvio, o que pode resultar em um loop de reenvios.</p>
+<p class="no-margin"></p>
+<p class="no-margin">O limite de reenvio da Veriff é para garantir que um usuário final não fique preso em um loop negativo. Além disso, quando no Enterprise Plan, isso também significa que você tem controle sobre a quantidade de reenvios que seus clientes podem fazer ao serem verificados.</p>
+<p class="no-margin"></p>
+<p class="no-margin"></p>
+<h1 id="h_9661741d71">Como Funciona?</h1>
+<p class="no-margin">Se o seu usuário final tiver sido solicitado a reenviar 9 vezes durante a mesma sessão &amp; usando a mesma Identificação da sessão, a 10ª tentativa será automaticamente recusada.</p>
+<p class="no-margin"></p>
+<p class="no-margin">A recusa ocorreria simplesmente como resultado de atingir o limite de reenvio e eles não poderão fazer mais reenvios nessa sessão.</p>
+<p class="no-margin"></p>
+<p class="no-margin"></p>
+<h2 id="h_e1ab35c382">Razão / Código Granular</h2>
+<p class="no-margin">Quando uma sessão é recusada devido ao limite de reenvio ter sido excedido, o código de razão da recusa será: </p>
+<p class="intercom-align-center no-margin">"539" - "Limite de reenvio excedido"</p>
+<p class="no-margin"></p>
+<p class="no-margin">Este código de razão granular também está registrado em nosso <a class="intercom-content-link" href="https://developers.veriff.com/#grc-verification-decision-declined" target="_blank">guia de documentação para desenvolvedores aqui</a>.</p></body></html>
