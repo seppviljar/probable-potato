@@ -2,7 +2,7 @@ import os
 import json
 
 def generate_menu():
-    root_dir = './html-files/zu-ZA'
+    root_dir = './html-files/zu'
     menu = {}
 
     menu = [
