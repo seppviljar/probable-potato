@@ -76,9 +76,9 @@
                     // Extract the human-readable name from the filename
                     const id = fileName.split('-')[0];
                     const displayName = fileName
+                        .replace(/^\d+-/, '') // Remove the numeric prefix
                         .replace(/-/g, ' ') // Replace dashes with spaces
                         .replace('.html', '') // Remove the .html extension
-                        .replace(/^\d+-/, '') // Remove the numeric prefix
                         .replace(/\b\w/g, char => char.toUpperCase()) // Turn text to Title Case;
                         .replace(/\b(?:And|Or|The|Of|For|To|In|On|At|By)\b/g, word => word.toLowerCase()); // Lowercase small words
                     const li = document.createElement('li');
